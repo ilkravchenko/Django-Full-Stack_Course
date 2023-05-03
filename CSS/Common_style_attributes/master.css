@@ -1,0 +1,18 @@
+body{
+    background-color: cornflowerblue;
+}
+
+div{
+    background-color: green;
+    border-color: orange;
+    border-width: 10px;
+    border-style: dashed;
+}
+
+span{
+    background-color: red;
+}
+
+p{
+    border: yellow 1px dashed;
+}
