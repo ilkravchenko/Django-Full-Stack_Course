@@ -103,7 +103,7 @@ else:
 # #
 # # For example:
 
- try:
+try:
     result = '10' + 10 # uh oh, trying to add an integer to a string, type mismatch!
 except:
      
