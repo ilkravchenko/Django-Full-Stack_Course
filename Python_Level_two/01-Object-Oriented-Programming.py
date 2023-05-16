@@ -431,7 +431,7 @@ class Book():
 # # In[44]:
 
 
-# book = Book("Python Rocks!", "Jose Portilla", 159)
+book = Book("Python Rocks!", "Jose Portilla", 159)
 
 #Special Methods
 print(book)
