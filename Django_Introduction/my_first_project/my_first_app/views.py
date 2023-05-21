@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 
 articles = {
@@ -28,10 +29,15 @@ def add_nums(request, num1, num2):
 # redirect from domain.com/my_first_app/0 ---> domain.com/my_first_app/sports
 def num_page_view(request, num_page):
     topics_list = list(articles.keys())
+    topic = topics_list[num_page]  
     
-    try:
-        topic = topics_list[num_page]    
-        return HttpResponseRedirect(topic)
-    except:
-        return HttpResponseNotFound('No page for that topic')
+    webpage = reverse('news_page', args=[topic])
+    return HttpResponseRedirect(webpage)
+    # return HttpResponseRedirect(reverse('news_page', args=[topic]))
+    
+    # try:
+    #     topic = topics_list[num_page]    
+    #     return HttpResponseRedirect(topic)
+    # except:
+    #     return HttpResponseNotFound('No page for that topic')
     
