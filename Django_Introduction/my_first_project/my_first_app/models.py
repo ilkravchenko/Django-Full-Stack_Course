@@ -59,3 +59,10 @@ print(carl)
 print(carl.last_name)
 carl.last_name = 'Smithhh'
 carl.save()
+
+##################### Deleting Entries ##########################
+
+data_point = Patient.objects.get(pk=1)
+data_point.delete()
+
+##################### Connecting Template and Database Models ##########################
