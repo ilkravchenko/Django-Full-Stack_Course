@@ -1,11 +1,15 @@
 from django.db import models
 from django.db.models import Q
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class Patient(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    age = models.IntegerField()
+    age = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(120)])
+    
+    # update model (default and null=True)
+    heartrate = models.IntegerField(default=60, validators=[MinValueValidator(20), MaxValueValidator(300)])
     
     def __str__(self) -> str:
         return f"{self.last_name} {self.first_name} - {self.age} years old."
@@ -46,3 +50,12 @@ class Patient(models.Model):
 
 # # ordering
 # Patient.objects.filter(age__lt=20).all().order_by('age') 
+
+
+##################### Updating Entries ##########################
+
+carl = Patient.objects.get(pk=1)
+print(carl)
+print(carl.last_name)
+carl.last_name = 'Smithhh'
+carl.save()
