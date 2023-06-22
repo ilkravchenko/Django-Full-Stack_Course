@@ -31,6 +31,7 @@
                     <div class='form-control'>
                         {{ field.label_tag }}{{field}}
                     </div>
+                    {{ field.errors }}
                 {% endfor %}
 
                 <input type="submit" value="Submit">
