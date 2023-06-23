@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from classroom.forms import ContactForm
 from .models import Teacher
@@ -49,6 +49,13 @@ class TeacherUpdateView(UpdateView):
     success_url = reverse_lazy('classroom:list_teacher')
     
     
+class TeacherDeleteView(DeleteView):
+    # form --> Confirm Delete Button
+    # default template name
+    # model_confirm_delete.html
+    model = Teacher
+    
+    success_url = reverse_lazy('classroom:list_teacher')
     
 
 class ContactFormView(FormView):
